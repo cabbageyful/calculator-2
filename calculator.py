@@ -43,7 +43,4 @@ def calculator(user_input):
         remainder_numbers = mod(calculator_input[0], calculator_input[1])
         print remainder_numbers
 
-calculator("mod 6 4")
-#To Do:  comment entire file, add Docstring
-#Enable user to type input string directly in terminal through arithmetic.py
-#Enable user to input multiple arguments
+calculator("cube 104")
