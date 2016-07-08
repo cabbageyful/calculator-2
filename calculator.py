@@ -1,46 +1,49 @@
-"""
-calculator.py
-
-Using our arithmetic.py file from Exercise02, create the
-calculator program yourself in this file.
-"""
-
 from arithmetic import *
 
 
 # Your code goes here
-def calculator(input_string):
+def calculator(user_input):
+    """Makes a REPL for the prefix calculator.
 
-    split_input_string = input_string.split(" ")
-    math_operation = split_input_string.pop(0)  
-    #print split_input_string
-    #print math_operation     
-    
+    Takes user's input, parses the mathematical operator & numerical
+    values. Function calls referenced refer to arithmetic.py. Tells calculator
+    to process numbers & print the result.
+    """
 
-    for i in range(len(split_input_string)):
-        split_input_string[i] = int(split_input_string[i])
-        
-     
-        
-    if math_operation == "q":
+    calculator_input = user_input.split(" ")    # creates list from user's input
+    math_operator = calculator_input.pop(0)     # stores math operator in own variable
+
+    for i in range(len(calculator_input)):
+        calculator_input[i] = int(calculator_input[i])  # remaining values are typecast as integers
+
+    if math_operator == "q":                    # ability to (q)uit the calculator process
         return
-    elif math_operation == "+":
-        added_numbers = add(split_input_string[0], split_input_string[1])
+    elif math_operator == "+":
+        added_numbers = add(calculator_input[0], calculator_input[1])
         print added_numbers
-    elif math_operation == "-":
-        subtracted_numbers = subtract(split_input_string[0],split_input_string[1])
+    elif math_operator == "-":
+        subtracted_numbers = subtract(calculator_input[0], calculator_input[1])
         print subtracted_numbers
-    elif math_operation == "*":
-        multiplied_numbers = multiply(split_input_string[0],split_input_string[1])
+    elif math_operator == "*":
+        multiplied_numbers = multiply(calculator_input[0], calculator_input[1])
         print multiplied_numbers
-    elif math_operation == "/":
-        divided_numbers = divide(split_input_string[0],split_input_string[1])
+    elif math_operator == "/":
+        divided_numbers = divide(calculator_input[0], calculator_input[1])
         print divided_numbers
-    elif math_operation == "square":
-        squared_numbers = square(split_input_string[0])
+    elif math_operator == "square":
+        squared_numbers = square(calculator_input[0])
         print squared_numbers
+    elif math_operator == "cube":
+        cubed_numbers = cube(calculator_input[0])
+        print cubed_numbers
+    elif math_operator == "power":
+        exponent_numbers = power(calculator_input[0], calculator_input[1])
+        print exponent_numbers
+    elif math_operator == "mod":
+        remainder_numbers = mod(calculator_input[0], calculator_input[1])
+        print remainder_numbers
 
-calculator("/ 6 3")
-#To Do: Add remaining math functions (cube, power, mod), comment entire file, add Docstring
+calculator("mod 6 4")
+#To Do:  comment entire file, add Docstring
 #Enable user to type input string directly in terminal through arithmetic.py
 #Enable user to input multiple arguments
